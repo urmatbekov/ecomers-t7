@@ -50,6 +50,29 @@ class App extends Component {
                 text: "Some quick example text to build on the card title and make up the bulk of the card's content.",
                 price:120
             }
+        ],
+        cart:[
+            {
+                id: 45,
+                title: "Card Title",
+                image: "/product.webp",
+                text: "Some quick example text to build on the card title and make up the bulk of the card's content.",
+                price:120
+            },
+            {
+                id: 45,
+                title: "Card Title",
+                image: "/product.webp",
+                text: "Some quick example text to build on the card title and make up the bulk of the card's content.",
+                price:120
+            },
+            {
+                id: 45,
+                title: "Card Title",
+                image: "/product.webp",
+                text: "Some quick example text to build on the card title and make up the bulk of the card's content.",
+                price:120
+            }
         ]
     }
 
