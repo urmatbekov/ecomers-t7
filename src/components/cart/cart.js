@@ -1,9 +1,13 @@
 import React, {Component} from 'react';
 import {Container, Row, Table} from "react-bootstrap";
 import './cart.css'
+import CartItem from "./cart-item";
+
 
 class Cart extends Component {
     render() {
+        let {deleteFromCart, changeToCart} = this.props
+
         return (
             <Container>
                 <h1>Cart</h1>
@@ -27,61 +31,25 @@ class Cart extends Component {
                             <th>
                                 Line Total
                             </th>
+                            <th>
+                                Delete
+                            </th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr className="cart-row">
-                            <td>
-                                <img src="/product.webp" alt=""/>
-                            </td>
-                            <td>
-                                Card Title
-                            </td>
-                            <td>
-                                120
-                            </td>
-                            <td>
-                                2
-                            </td>
-                            <td>
-                                240
-                            </td>
-                        </tr>
-                        <tr className="cart-row">
-                            <td>
-                                <img src="/product.webp" alt=""/>
-                            </td>
-                            <td>
-                                Card Title
-                            </td>
-                            <td>
-                                120
-                            </td>
-                            <td>
-                                2
-                            </td>
-                            <td>
-                                240
-                            </td>
-                        </tr>
-                        <tr className="cart-row">
-                            <td>
-                                <img src="/product.webp" alt=""/>
-                            </td>
-                            <td>
-                                Card Title
-                            </td>
-                            <td>
-                                120
-                            </td>
-                            <td>
-                                2
-                            </td>
-                            <td>
-                                240
-                            </td>
-                        </tr>
+                        {this.props.data.map((item) => <CartItem changeToCart={changeToCart(item.id)}
+                                                                 deleteFromCart={deleteFromCart(item.id)}
+                                                                 key={item.id} {...item}/>)}
                         </tbody>
+                        <tfoot>
+                        <tr>
+                            <td colSpan={6}>
+                                <p>
+                                    <span>Total: </span>{this.props.data.reduce((sum, item) => item.price * item.count + sum, 0)}
+                                </p>
+                            </td>
+                        </tr>
+                        </tfoot>
                     </Table>
                 </Row>
             </Container>

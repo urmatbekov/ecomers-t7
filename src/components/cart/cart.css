@@ -4,3 +4,14 @@
 .cart-row img {
     width: 100px;
 }
+.nav-link sup {
+    background-color: tomato;
+    padding: 0 5px;
+    border-radius: 50%;
+    font-weight: bold;
+    color: white;
+}
+
+table {
+    text-align: center;
+}
