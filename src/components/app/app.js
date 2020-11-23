@@ -4,6 +4,7 @@ import Products from "../products/products";
 import Cart from "../cart/cart";
 import {Route, BrowserRouter, Switch} from "react-router-dom";
 import axios from "axios";
+import AddProduct from "../add-product/add-product";
 
 
 class App extends Component {
@@ -18,7 +19,6 @@ class App extends Component {
         })
     }
 
-    componentD
 
     addToCart = (id) => () => {
         this.setState(({cart, data}) => {
@@ -66,6 +66,9 @@ class App extends Component {
                         <Route exact path="/cart">
                             <Cart deleteFromCart={this.deleteFromCart} changeToCart={this.changeToCart}
                                   data={this.state.cart}/>
+                        </Route>
+                        <Route exact path="/add-product">
+                            <AddProduct/>
                         </Route>
                     </Switch>
                 </div>
