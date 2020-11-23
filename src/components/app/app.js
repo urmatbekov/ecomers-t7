@@ -14,7 +14,7 @@ class App extends Component {
     }
 
     componentDidMount() {
-        axios('https://nurkadyr.pythonanywhere.com/product/').then((res) => {
+        axios('https://nurkadyr.pythonanywhere.com/product/?page=2').then((res) => {
             this.setState({data: res.data.results})
         })
     }
