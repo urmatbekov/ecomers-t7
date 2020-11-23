@@ -3,61 +3,29 @@ import NavbarMenu from "../navbar/navbar";
 import Products from "../products/products";
 import Cart from "../cart/cart";
 import {Route, BrowserRouter, Switch} from "react-router-dom";
+import axios from "axios";
 
 
 class App extends Component {
     state = {
-        data: [
-            {
-                id: 12,
-                title: "Card Title",
-                image: "/product.webp",
-                text: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-                price: 130
-            },
-            {
-                id: 24,
-                title: "Card Title2",
-                image: "/product.webp",
-                text: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-                price: 150
-            },
-            {
-                id: 45,
-                title: "Card Title3",
-                image: "/product.webp",
-                text: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-                price: 170
-            },
-            {
-                id: 56,
-                title: "Card Title4",
-                image: "/product.webp",
-                text: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-                price: 110
-            },
-            {
-                id: 1243,
-                title: "Card Title5",
-                image: "/product.webp",
-                text: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-                price: 125
-            },
-            {
-                id: 78,
-                title: "Card Title6",
-                image: "/product.webp",
-                text: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-                price: 146
-            }
-        ],
+        data: [],
         cart: []
     }
 
+    componentDidMount() {
+        axios('https://nurkadyr.pythonanywhere.com/product/').then((res) => {
+            this.setState({data: res.data.results})
+        })
+    }
+
+    componentD
+
     addToCart = (id) => () => {
         this.setState(({cart, data}) => {
-            const product = {...data.find((product) => product.id === id), count: 1}
-            return {cart: [...cart, product]}
+            if (cart.findIndex(item => item.id === id) === -1) {
+                const product = {...data.find((product) => product.id === id), count: 1}
+                return {cart: [...cart, product]}
+            }
         })
     }
 
@@ -78,6 +46,10 @@ class App extends Component {
             }
             return {cart: [...cart.slice(0, productIndex), product, ...cart.slice(productIndex + 1)]}
         })
+    }
+
+    testfunc = async () => {
+
     }
 
 
