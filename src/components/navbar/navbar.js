@@ -14,7 +14,7 @@ class NavbarMenu extends Component {
                         <Nav className="mr-auto">
                             <NavLink className="nav-link" to="/products">Products</NavLink>
                             <NavLink className="nav-link" to="/cart">Cart<sup>{cartCount}</sup></NavLink>
-                            <NavLink className="nav-link" to="/add-product">Add product</NavLink>
+                            <NavLink className="nav-link" to="/products/add">Add product</NavLink>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

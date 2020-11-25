@@ -14,7 +14,7 @@ class App extends Component {
     }
 
     componentDidMount() {
-        axios('https://nurkadyr.pythonanywhere.com/product/').then((res) => {
+        axios.get('https://nurkadyr.pythonanywhere.com/product/').then((res) => {
             this.setState({data: res.data.results})
         })
     }
@@ -69,7 +69,7 @@ class App extends Component {
                             <Cart deleteFromCart={this.deleteFromCart} changeToCart={this.changeToCart}
                                   data={this.state.cart}/>
                         </Route>
-                        <Route exact path="/add-product">
+                        <Route exact path="/products/add">
                             <AddProduct addProduct={this.addProduct}/>
                         </Route>
                     </Switch>
